@@ -14,15 +14,6 @@ const User = sequelize.define('user', {
     timestamps: false   // Не создавать поля createdAt и UpdateAt
 });
 
-const Session = sequelize.define('session', {
-    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false },
-    id_user: { type: DataTypes.INTEGER, primaryKey: true, allowNull: false },
-    session_hash: { type: DataTypes.STRING, allowNull: false },
-}, {
-    tableName: 'session',
-    timestamps: false
-});
-
 const Track_queue = sequelize.define('track_queue', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     id_trach: { type: DataTypes.DATE, allowNull: false },
@@ -124,7 +115,6 @@ Track_queue.belongsTo(User, { foreignKey: 'user_id' });
 
 module.exports = {
     User,
-    Session,
     Track_queue,
     Track_history,
     Track,
