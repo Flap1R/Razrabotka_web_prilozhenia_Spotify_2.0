@@ -95,23 +95,26 @@ const Album_artist = sequelize.define('user_event', {
 });
 
 // Определение связей между моделями
-Artist.belongsToMany(Album, { through: Album_artist });
-Album.belongsToMany(Artist, { through: Album_artist });
+// Artist и Album
+Artist.belongsToMany(Album, { through: 'Album_artist' });
+Album.belongsToMany(Artist, { through: 'Album_artist' });
 
-Artist.belongsToMany(Track, { through: Track_artist });
-Track.belongsToMany(Artist, { through: Track_artist });
+// Artist и Track
+Artist.belongsToMany(Track, { through: 'Track_artist' });
+Track.belongsToMany(Artist, { through: 'Track_artist' });
 
-Album.belongsToMany(Track, { through: Track_album });
-Track.belongsToMany(Album, { through: Track_album });
+// Album и Track
+Album.belongsToMany(Track, { through: 'Track_album' });
+Track.belongsToMany(Album, { through: 'Track_album' });
 
-User.hasOne(Session, { foreignKey: 'user_id' });
-Session.belongsTo(User, { foreignKey: 'user_id' });
-
+// User и Track_history
 User.hasMany(Track_history, { foreignKey: 'user_id' });
 Track_history.belongsTo(User, { foreignKey: 'user_id' });
 
+// User и Track_queue
 User.hasMany(Track_queue, { foreignKey: 'user_id' });
 Track_queue.belongsTo(User, { foreignKey: 'user_id' });
+
 
 module.exports = {
     User,
