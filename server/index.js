@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000
 const app = express()
 app.use(cors());
 app.use(express.json());
-app.use('/static/lostAnimal_img', express.static(path.resolve(__dirname, 'static', 'lostAnimal_img')));
+app.use('/static/track_img', express.static(path.resolve(__dirname, 'static', 'track_img')));
 app.use(fileUpload({}))
 app.use('/api', router)
 
