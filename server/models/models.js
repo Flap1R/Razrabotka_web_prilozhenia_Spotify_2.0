@@ -20,6 +20,7 @@ const Track_queue = sequelize.define('track_queue', {
     id_user: { type: DataTypes.STRING, allowNull: false },
     id_album: { type: DataTypes.STRING, allowNull: false },
 }, {
+    tableName: 'track_queue',
     timestamps: false
 });
 
@@ -85,7 +86,7 @@ const Artist = sequelize.define('artist', {
     timestamps: false
 });
 
-const Album_artist = sequelize.define('user_event', {
+const Album_artist = sequelize.define('album_artist', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false },
     id_artist: { type: DataTypes.INTEGER, allowNull: false },
     id_album: { type: DataTypes.INTEGER, allowNull: false },
@@ -96,16 +97,16 @@ const Album_artist = sequelize.define('user_event', {
 
 // Определение связей между моделями
 // Artist и Album
-Artist.belongsToMany(Album, { through: 'Album_artist' });
-Album.belongsToMany(Artist, { through: 'Album_artist' });
+Artist.belongsToMany(Album, { through: 'tlbum_artist' });
+Album.belongsToMany(Artist, { through: 'tlbum_artist' });
 
 // Artist и Track
-Artist.belongsToMany(Track, { through: 'Track_artist' });
-Track.belongsToMany(Artist, { through: 'Track_artist' });
+Artist.belongsToMany(Track, { through: 'trackA_atist' });
+Track.belongsToMany(Artist, { through: 'track_artist' });
 
 // Album и Track
-Album.belongsToMany(Track, { through: 'Track_album' });
-Track.belongsToMany(Album, { through: 'Track_album' });
+Album.belongsToMany(Track, { through: 'track_album' });
+Track.belongsToMany(Album, { through: 'track_album' });
 
 // User и Track_history
 User.hasMany(Track_history, { foreignKey: 'user_id' });
