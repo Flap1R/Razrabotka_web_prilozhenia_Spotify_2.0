@@ -2,3 +2,8 @@
     height: 25rem;
     overflow-y: scroll;
 }
+
+.your_library::-webkit-scrollbar{
+    width: 12px;
+    background-color: #ffffff75;
+} 
