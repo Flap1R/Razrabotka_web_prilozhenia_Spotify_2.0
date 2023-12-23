@@ -3,6 +3,7 @@ import {BiLibrary, BiSolidHome} from "react-icons/bi";
 import {FiSearch} from "react-icons/fi";
 import {FaPlus} from "react-icons/fa";
 import {TbWorld} from "react-icons/tb";
+import Signup from './Signup';
 const Sidebar = () => {
     return (
         <div className="w-1/4 sidebar ">
@@ -26,19 +27,21 @@ const Sidebar = () => {
                         <FaPlus className="font-bold text-xl"/>
                     </button>
                 </div>
-                <div className="your_library leading-8 mt-2 tertiary_bg rounded-lg py-6 px-4">
-                    <p className="font-bold">Create your first playlist</p>
-                    <p className="font-semibold">It's easy, we'll help you</p>
-                    <buttonn className="rounded-full text-black mt-4 px-4 py-0 bg-white font-semibold">
-                        Create playlist
-                    </buttonn>
-                </div>
-                <div className="your_library leading-8 mt-4 tertiary_bg rounded-lg py-6 px-4">
-                    <p className="font-bold">Lets find some podcast to follow</p>
-                    <p className="font-semibold">We'll keep you updated on new episodes</p>
-                    <buttonn className="rounded-full text-black mt-4 px-4 py-0 bg-white font-semibold">
-                        Browse Podcast
-                    </buttonn>
+                <div className="your_library">
+                    <div className="leading-8 mt-2 tertiary_bg rounded-lg py-6 px-4">
+                        <p className="font-bold">Create your first playlist</p>
+                        <p className="font-semibold">It's easy, we'll help you</p>
+                        <buttonn className="rounded-full text-black mt-4 px-4 py-0 bg-white font-semibold">
+                            Create playlist
+                        </buttonn>
+                    </div>
+                    <div className="leading-8 mt-4 tertiary_bg rounded-lg py-6 px-4">
+                        <p className="font-bold">Lets find some podcast to follow</p>
+                        <p className="font-semibold">We'll keep you updated on new episodes</p>
+                        <buttonn className="rounded-full text-black mt-4 px-4 py-0 bg-white font-semibold">
+                            Browse Podcast
+                        </buttonn>
+                    </div>
                 </div>
             </div>
             <div className="mt-4 px-4 flex gap-4 flew-wrap">
@@ -53,6 +56,7 @@ const Sidebar = () => {
                 <TbWorld />
                 <span className="text-white font-bold">English</span>
             </button>
+            <Signup/>
         </div>
   );
 };
