@@ -4,6 +4,8 @@ import {FiSearch} from "react-icons/fi";
 import {FaPlus} from "react-icons/fa";
 import {TbWorld} from "react-icons/tb";
 import Signup from './Signup';
+import "./Sidebar.css"
+
 const Sidebar = () => {
     return (
         <div className="w-1/4 sidebar ">
