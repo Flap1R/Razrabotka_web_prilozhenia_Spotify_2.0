@@ -5,7 +5,7 @@ const Layout = ({children}) => {
   return (
     <div className="flex gap-2">
         <Sidebar/>
-        <div className="w3/4 border border-s-white">{children}</div>
+        <div className="w3/4 absolute -z-10 right-0 top-0 ml-8">{children}</div>
     </div>
   );
 };

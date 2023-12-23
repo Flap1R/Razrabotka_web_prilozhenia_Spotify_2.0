@@ -3,7 +3,7 @@ import "./Card.css"
 import { FaPlay } from "react-icons/fa";
 const Card = () => {
   return (
-    <div className='card col-span-1 secondary_bg p-4 rounded-lg'>
+    <div className='card col-span-1 p-4 rounded-lg'>
         <div className="relative">
             <img src="/assets/card.jpg" alt="" />
             <button className='flex items-center play_btn absolute bottom-0 right-0 rounded-[50%] bg-green-500 justify-center p-3'>

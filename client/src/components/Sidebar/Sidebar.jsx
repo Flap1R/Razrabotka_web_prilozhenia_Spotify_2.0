@@ -8,7 +8,7 @@ import "./Sidebar.css"
 
 const Sidebar = () => {
     return (
-        <div className="w-1/4 sidebar ">
+        <div className="w-1/4 fixed left-0 top-0 sidebar ">
             <div className="nav secondary_bg rounded-lg p-6">
                 <div className="flex items-center gap-4">
                     <BiSolidHome className="font-bold text-xl"/>
@@ -54,7 +54,7 @@ const Sidebar = () => {
                 <a className="text-xs text-gray-300 mx-4" href="#">About Ads</a>
                 <a className="text-xs text-gray-300 mx-4" href="#">Accessibility</a>
             </div>
-            <button className="mx-4 mt-4 text-sm border-white border rounded-full flex gap-2 px-3 py-1 item-center text-white">
+            <button className="mx-4 mt-12 text-sm border-white border rounded-full flex gap-2 px-3 py-1 item-center text-white">
                 <TbWorld />
                 <span className="text-white font-bold">English</span>
             </button>
