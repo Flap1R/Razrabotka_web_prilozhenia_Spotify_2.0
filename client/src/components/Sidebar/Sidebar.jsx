@@ -19,7 +19,7 @@ const Sidebar = () => {
                     <span>Search</span>
                 </div>
             </div>
-            <div className="your_library mt-2 secondary_bg rounded-lg px-2 py-2">
+            <div className="mt-2 secondary_bg rounded-lg px-2 py-2">
                 <div className="flex px-4 justify-between mb-4 items-center gap-4">
                     <div className="flex gap-2 items-center">
                     <BiLibrary className="font-bold text-xl"/>
