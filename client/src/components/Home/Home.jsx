@@ -9,12 +9,12 @@ const Home = () => {
           <FaGreaterThan className="bg-white/10 text-3xl p-1 rounded-[50%]"/>
         </div>
         <div>
-          <buttonn className="rounded-full mt-4 px-8 text-base py-2 text-white- font-semibold">
+          <Link to={'/signup'} className="rounded-full mt-4 px-8 text-base py-2 text-white- font-semibold">
               Sign up
-          </buttonn>
-          <buttonn className="rounded-full text-black mt-4 px-8 text-base py-3 bg-white font-semibold">
+          </Link>
+          <Link to={'/login'} className="rounded-full text-black mt-4 px-8 text-base py-3 bg-white font-semibold">
               Log in
-          </buttonn>
+          </Link>
         </div>
       </div>
       <div className="tertiary_bg mx-4 px-4 py-4">

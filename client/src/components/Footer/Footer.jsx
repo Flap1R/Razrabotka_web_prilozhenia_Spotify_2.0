@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="my-8 border-b border-white/50"></div>
         <p><span className="text-gray-400">© 2023 Spotify AB</span></p>
     </footer>   
-  )
-}
+  );
+};
 
 export default Footer
