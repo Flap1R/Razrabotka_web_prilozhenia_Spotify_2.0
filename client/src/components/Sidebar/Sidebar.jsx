@@ -63,51 +63,75 @@ const Sidebar = () => {
         <div className="my-6 px-2">
           {playlists.map((p) => {
             return (
-            <div key={p._id} className="flex gap-4 my-2">
+              <div key={p._id} className="flex gap-4 my-2">
                 <div>
-                    <img
-                        src="/assets/Arijit-1.jpg"
-                        width={50}
-                        height={50}
-                        alt=""
-                    />
+                  <img
+                    src="/assets/Arijit-1.jpg"
+                    width={50}
+                    height={50}
+                    alt=""
+                  />
                 </div>
                 <div>
-                    <h3 className="text-base font-medium mb-2">{p.title}</h3>
-                    <p className="text-sm text-white/80">
-                        Playlist
-                        <span> . {p.songs.length} Songs</span>
-                    </p>
+                  <h3 className="text-base font-medium mb-2">{p.title}</h3>
+                  <p className="text-sm text-white/80">
+                    Playlist
+                    <span> . {p.songs.length} Songs</span>
+                  </p>
                 </div>
-            </div>
+              </div>
             );
           })}
         </div>
-        </div>
-        <div className="mt-4 px-4 flex gap-4 flex-wrap">
-            <a className="text-xs text-gray-300 mx-4" href="#">
-            Legal
-            </a>
-            <a className="text-xs text-gray-300 mx-4" href="#">
-            Privacy Center
-            </a>
-            <a className="text-xs text-gray-300 mx-4" href="#">
-            Privacy Policy
-            </a>
-            <a className="text-xs text-gray-300 mx-4" href="#">
-            Cookies
-            </a>
-            <a className="text-xs text-gray-300 mx-4" href="#">
-            About Ads
-            </a>
-            <a className="text-xs text-gray-300 mx-4" href="#">
-            Accessibility
-            </a>
-        </div>
-        <button className="mx-4 mt-12 text-sm border-white border rounded-full flex gap-2 px-3 py-1 items-center  text-white ">
-            <TbWorld />
-            <span className="text-white font-bold">English</span>
-        </button>
+        {/* <div className="your_library">
+            <div className="leading-8 mt-2 tertiary_bg rounded-lg py-6 px-4">
+              <p className="font-bold">Create your first playlist</p>
+              <p className="font-semibold">
+                  It's easy, we'll help you
+              </p>
+              <button className="rounded-full text-black mt-4 px-4 py-0 bg-white font-semibold">
+                Create playlist
+              </button>
+            </div>
+            <div className="leading-8 mt-4 tertiary_bg rounded-lg py-6 px-4">
+                <p className="font-bold">
+                   Let's find some podcasts to follow
+                </p>
+                <p className="font-semibold">
+                  We'll keep you updated on new episodes
+                </p>
+                <button className="rounded-full text-black mt-4 px-4 py-0 bg-white font-semibold">
+                  Browse Podcast
+                </button>
+            </div>
+        </div> */}
+      </div>
+      <div className="mt-4 px-4 flex gap-4 flex-wrap">
+        <a className="text-xs text-gray-300 mx-4" href="#">
+          Legal
+        </a>
+        <a className="text-xs text-gray-300 mx-4" href="#">
+          Privacy Center
+        </a>
+        <a className="text-xs text-gray-300 mx-4" href="#">
+          Privacy Policy
+        </a>
+        <a className="text-xs text-gray-300 mx-4" href="#">
+          Cookies
+        </a>
+        <a className="text-xs text-gray-300 mx-4" href="#">
+          About Ads
+        </a>
+        <a className="text-xs text-gray-300 mx-4" href="#">
+          Accessibility
+        </a>
+      </div>
+      <button className="mx-4 mt-12 text-sm border-white border rounded-full flex gap-2 px-3 py-1 items-center  text-white ">
+        <TbWorld />
+        <span className="text-white font-bold">English</span>
+      </button>
+
+      {/* <Signup /> */}
     </div>
   );
 };

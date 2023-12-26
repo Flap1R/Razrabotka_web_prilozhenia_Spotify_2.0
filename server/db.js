@@ -1,14 +1,12 @@
-const {Sequelize} = require('sequelize')
-require('dotenv').config()
+const mongoose = require("mongoose");
 
-module.exports = new Sequelize(
-    process.env.DB_NAME,    // Название БД
-    process.env.DB_USER,    // Пользователь
-    process.env.DB_PASSWORD,    // Пароль
-    {
-        dialect: 'postgres',
-        host: process.env.DB_HOST,
-        port: process.env.DB_PORT
-    }
+const MONGO_URI = "mongodb://127.0.0.1:27017/Spotify2.0";
 
-)
+mongoose
+  .connect(MONGO_URI)
+  .then(() => {
+    console.log("connected to db");
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
