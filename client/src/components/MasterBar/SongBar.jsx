@@ -45,7 +45,7 @@ const SongBar = () => {
             song_artist:masterSong.artist,
             song_thumbnail:masterSong.img,
         })
-        const res = await fetch('http://localhost:5000/api/playlist/like', {
+        const res = await fetch('http://localhost:3000/api/playlist/like', {
             method:"POST",
             headers:{
                 'Content-Type':"application/json",
