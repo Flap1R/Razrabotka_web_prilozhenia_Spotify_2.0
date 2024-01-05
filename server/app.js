@@ -10,6 +10,10 @@ app.use(cors());
 
 app.use("/api/user", require("./routes/user"));
 app.use("/api/playlist", require("./routes/playlist"));
+app.use("/api/album", require("./routes/album"));
+app.use("/api/artist", require("./routes/artist"));
+app.use("/api/profile", require("./routes/profile"));
+app.use("/api/review", require("./routes/review"));
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
