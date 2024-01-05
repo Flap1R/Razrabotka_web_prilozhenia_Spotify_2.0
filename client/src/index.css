@@ -10,20 +10,28 @@
   list-style: none;
   font-family: "Poppins", sans-serif;
 }
+
 body {
   background-color: #000;
   color: #fff;
   scroll-behavior: smooth;
 }
+
+html{
+  font-size: 90%;
+}
+
 :root {
   --secondary_bg: #181818;
   --card_sec_bg: #1212125e;
   --tertiary_bg: #121212;
   --card_bg: #303030;
 }
+
 .secondary_bg {
   background: var(--secondary_bg);
 }
+
 .tertiary_bg {
   background: var(--tertiary_bg);
 }

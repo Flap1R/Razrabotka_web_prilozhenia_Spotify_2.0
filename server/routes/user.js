@@ -6,13 +6,11 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 
 router.post("/login", async (req, res) => {
-  console.log(req.body);
 
   const { username, password } = req.body;
 
   try {
     let user = await User.findOne({ username });
-    console.log(user);
     if (!user) {
       user = await User.findOne({ email: username });
     }
@@ -25,7 +23,6 @@ router.post("/login", async (req, res) => {
         return res.json({ success: false, message: "Invalid Credentials" });
       else {
         let token = await generateToken(user._id);
-        console.log(token, user);
 
         return res.json({
           success: true,
@@ -41,7 +38,6 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
-  console.log(req.body);
   const { email, username, password, DOB, gender } = req.body;
 
   if (!email || !username || !password || !DOB || !gender)
@@ -55,20 +51,18 @@ router.post("/register", async (req, res) => {
       DOB,
       gender,
     });
-    console.log(user);
     if (user) {
       let token = await generateToken(user._id);
 
-      console.log(token);
       res.json({ success: true, message: "User Created", user, token });
     } else {
       res.json({ success: false, message: "Some error creating Account" });
     }
   } catch (error) {
-    console.log(error);
     res.json({ success: false, message: "internal server error" });
   }
 });
+
 router.get("/me", async (req, res) => {
   try {
     const { token } = req.headers;

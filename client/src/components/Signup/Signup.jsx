@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./signup.css";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
@@ -32,7 +32,6 @@ const Signup = () => {
   const { isAuthenticated } = useSelector((state) => state.account);
   const registerUser = async (e) => {
     e.preventDefault();
-    console.log(userDetails);
     const index = months.indexOf(userDetails.month);
     let DOB = `${index}-${userDetails.day}-${userDetails.year}`;
     const { email, password, gender, username } = userDetails;
@@ -43,8 +42,7 @@ const Signup = () => {
       DOB,
       username,
     });
-    console.log(d);
-    const res = await fetch("http://localhost:3000/api/user/register", {
+    const res = await fetch("http://localhost:5001/api/user/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +67,6 @@ const Signup = () => {
     } else {
       toast.error(data.message);
     }
-    console.log(data);
   };
 
   const onChange = (e) => {
@@ -91,7 +88,7 @@ const Signup = () => {
     if (isAuthenticated) {
       navigate("/");
     }
-  }, []);
+  }, [isAuthenticated, navigate]);
   return (
     <>
       <div className="py-8 bg-white">
@@ -121,9 +118,10 @@ const Signup = () => {
                   htmlFor="email"
                   className="font-semibold mb-2 text-sm inline-block"
                 >
-                  What's your email?{" "}
+                  What&apos;s your email?{" "}
                 </label>
                 <input
+                  autoComplete="off"
                   type="text"
                   id="email"
                   name="email"
@@ -141,7 +139,8 @@ const Signup = () => {
                   Create a password{" "}
                 </label>
                 <input
-                  type="text"
+                  autoComplete="off"
+                  type="password"
                   id="password"
                   value={userDetails.password}
                   onChange={onChange}
@@ -158,12 +157,13 @@ const Signup = () => {
                   What should we call you?{" "}
                 </label>
                 <input
+                  autoComplete="off"
                   type="text"
                   id="username"
                   value={userDetails.username}
                   onChange={onChange}
                   name="username"
-                  placeholder="Create a password"
+                  placeholder="Create a name"
                   className="block w-full rounded-[4px] border-0  text-black transition-all duration-200 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-[3px] focus:ring-inset focus:ring-white-600 outline-none p-3 hover:ring-black bg-[#fff]"
                 />
                 <small>it will appear on your profile</small>
@@ -174,7 +174,7 @@ const Signup = () => {
                   htmlFor="password"
                   className="font-semibold mb-2 text-sm inline-block"
                 >
-                  What's your date of birth?
+                  What&apos;s your date of birth?
                 </label>
                 <div className="flex gap-8">
                   <div className="w-1/4">
@@ -182,6 +182,7 @@ const Signup = () => {
                       Day
                     </label>
                     <input
+                      autoComplete="off"
                       type="text"
                       value={userDetails.day}
                       onChange={onChange}
@@ -218,6 +219,7 @@ const Signup = () => {
                       Year
                     </label>
                     <input
+                      autoComplete="off"
                       type="text"
                       id="year"
                       name="year"
@@ -231,6 +233,7 @@ const Signup = () => {
                 <div className="flex gap-8 mt-4">
                   <div className="">
                     <input
+                      autoComplete="off"
                       type="radio"
                       id="m"
                       name="gender"
@@ -246,6 +249,7 @@ const Signup = () => {
                   </div>
                   <div className="">
                     <input
+                      autoComplete="off"
                       type="radio"
                       id="f"
                       name="gender"
@@ -261,6 +265,7 @@ const Signup = () => {
                   </div>
                   <div className="">
                     <input
+                      autoComplete="off"
                       type="radio"
                       id="o"
                       name="gender"
@@ -279,9 +284,9 @@ const Signup = () => {
               <div className="w-4/5 mx-auto text-left py-4">
                 <div className="my-4 flex items-center gap-4">
                   <input
+                    autoComplete="off"
                     type="checkbox"
-                    className="green-checkbox relative w-[1.7rem]
-                    h-[1.2rem]"
+                    className="green-checkbox relative"
                     name=""
                     id=""
                   />
@@ -291,21 +296,24 @@ const Signup = () => {
                   </p>
                 </div>
                 <div className="my-4 flex items-center gap-4">
-                  <input
-                    type="checkbox"
-                    className="green-checkbox relative w-[1.7rem] h-[1.2rem]"
-                    name=""
-                    id=""
-                  />
+                  <div>
+                    <input
+                      autoComplete="off"
+                      type="checkbox"
+                      className="green-checkbox relative"
+                      name=""
+                      id=""
+                    />
+                  </div>
                   <p className="text-sm">
-                    Share my registration data with Spotify's content providers
+                    Share my registration data with Spotify&apos;s content providers
                     for marketing purposes.
                   </p>
                 </div>
                 <p className="my-4 text-xs">
                   By clicking on sign-up, you agree to{" "}
                   <Link to="/" className="text-green-400">
-                    Spotify's Terms and Condition
+                    Spotify&apos;s Terms and Condition
                   </Link>{" "}
                   of Use.
                 </p>
@@ -313,13 +321,14 @@ const Signup = () => {
                   To learn more about how Spotify collects, uses, shares and
                   protects your personal data, please see
                   <Link to="/" className="text-green-400">
-                    Spotify's Privacy Policy.
+                    Spotify&apos;s Privacy Policy.
                   </Link>{" "}
                 </p>
               </div>
 
               <div className="w-full text-left py-4">
                 <input
+                  autoComplete="off"
                   type="submit"
                   value="Sign up"
                   className="block cursor-pointer w-1/2 mx-auto outline-none bg-green-400 text-black p-3 hover:scale-105 translate-all duration-200 font-medium hover:font-semibold text-center rounded-full "
@@ -329,7 +338,7 @@ const Signup = () => {
             <div className="border-b border-gray-400 w-3/4 my-4 mx-auto"></div>
             <p className="pt-8">
               <span className="text-gray-300 font-semibold">
-                Don't have an account?{" "}
+                Don&apos;t have an account?{" "}
               </span>
 
               <Link

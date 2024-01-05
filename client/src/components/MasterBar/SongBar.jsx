@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineHeart, AiOutlinePlaySquare } from "react-icons/ai";
 import { IoMdSkipBackward, IoMdSkipForward } from "react-icons/io";
@@ -38,14 +38,13 @@ const SongBar = () => {
         }
     };
     const addToLiked = async() => {
-        console.log(masterSong.mp3)
         let data = JSON.stringify({
             song_mp3:masterSong.mp3.src,
             song_title:masterSong.title,
             song_artist:masterSong.artist,
             song_thumbnail:masterSong.img,
         })
-        const res = await fetch('http://localhost:3000/api/playlist/like', {
+        const res = await fetch('http://localhost:5001/api/playlist/like', {
             method:"POST",
             headers:{
                 'Content-Type':"application/json",
@@ -54,8 +53,7 @@ const SongBar = () => {
             body:data,
         })
 
-        let d = await res.json();
-        console.log(d)
+        await res.json();
 
     };
     useEffect(() => {
@@ -84,18 +82,16 @@ const SongBar = () => {
                 }
             }, 1000);
         }
-    }, [masterSong, isPlaying]);
+    }, [masterSong, isPlaying, setDuration, progress, dispatch, resetEverything, setProgress, setCurrTime]);
 
     const changeProgress = (e) => {
         setProgress(e.target.value);
         masterSong.mp3.currentTime =
             (e.target.value / 100) * masterSong.mp3.duration;
-        console.log(progress);
     };
     const [volume, setVolume] = useState(50);
     const changeVolume = (e) => {
         setVolume(e.target.value);
-        console.log(e.target.value);
         masterSong.mp3.volume = e.target.value / 100;
     };
     const formatTime = (durationInSeconds) => {
@@ -120,26 +116,24 @@ const SongBar = () => {
         document.querySelector("#volume").style.background = "#fff";
     };
     const backwardSong = () => {
-        console.log("backward");
         if(songIdx <= 0 )
             return;
+        resetEverything();
         if (masterSong.mp3) {
             masterSong?.mp3?.pause();
             masterSong.mp3.currentTime = 0;
         }
-        resetEverything();
         setSongIdx((prevstate) => prevstate - 1);
         dispatch(playSong(songs[songIdx-1]));
     };
     const forwardSong = () => {
         if(songIdx >= 5-1)
             return;
+        resetEverything();
         if (masterSong.mp3) {
             masterSong?.mp3?.pause();
             masterSong.mp3.currentTime = 0;
         }
-        resetEverything();
-        console.log("forward");
         setSongIdx((prevstate) => prevstate + 1);
         dispatch(playSong(songs[songIdx+1]));
     };
@@ -147,13 +141,13 @@ const SongBar = () => {
         <div className="fixed w-full flex px-2 items-center justify-between bottom-0 left-0 h-20 bg-black">
             <div className="w-2/12">
                 <div className="flex items-center gap-2">
-                    <img src={masterSong.img} alt="" className="h-12" />
+                    <img src={masterSong?.img || "/assets/Na_Belom.jpg"} alt="" className="h-12" />
                     <div>
                         <h3 className="text-xs font-medium mb-1">
-                            {masterSong?.title || "Arijit Singh"}
+                            {masterSong?.title || "Song"}
                         </h3>
                         <span className="text-[10px]">
-                            {masterSong?.artist || "Arijit Singh"}
+                            {masterSong?.artist || "Artist"}
                         </span>
                     </div>
                     <AiOutlineHeart onClick={addToLiked} className="ml-3 cursor-pointer hover:text-green-400" />

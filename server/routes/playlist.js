@@ -17,7 +17,6 @@ router.post("/like", async (req, res) => {
 });
 
 router.post("/create", async (req, res) => {
-  console.log(req.body);
   const { singers, songs, title } = req.body;
   const playlist = await Playlist.create({ singers, songs, title });
 

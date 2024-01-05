@@ -8,6 +8,7 @@ import { AppProvider } from "./states/Contet";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Search from "./components/Search/Search";
+
 const App = () => {
   return (
     <Provider store={store}>

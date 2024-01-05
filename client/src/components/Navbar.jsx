@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   FaAngleLeft,
   FaAngleRight,
   FaExternalLinkAlt,
-  FaLink,
   FaSearch,
   FaUser,
 } from "react-icons/fa";
@@ -14,23 +13,20 @@ import { useGlobalContext } from "../states/Contet";
 import { logOutUser } from "../states/Actors/UserActor";
 
 const Navbar = () => {
-  const { user, isAuthenticated } = useSelector((state) => state.account);
+  const { isAuthenticated } = useSelector((state) => state.account);
 
   const location = useLocation();
   const [query, setQuery] = useState("");
   const { setFilteredSongs } = useGlobalContext();
   const filterSongs = (e) => {
     setQuery(e.target.value);
-    console.log(e.target.value);
     const fil = songs.filter((song) => {
-      console.log(song);
       if (
         song.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
         song.artist.toLowerCase().includes(e.target.value.toLowerCase())
       )
         return song;
     });
-    console.log(fil);
     if (e.target.value === "") setFilteredSongs([]);
     else setFilteredSongs(fil);
   };
@@ -43,9 +39,6 @@ const Navbar = () => {
       navigate('/login')
       dispatch(logOutUser())
   }
-  useEffect(() => {
-    console.log(location.pathname);
-  }, [location.pathname]);
   return (
     <header className="flex sticky top-0 z-50 justify-between ml-2 rounded-[6px]  mt-2 px-8 secondary_bg items-center ">
       <div className="flex gap-2 items-center  w-1/2">
