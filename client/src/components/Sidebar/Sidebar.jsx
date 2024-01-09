@@ -81,6 +81,96 @@ const Sidebar = () => {
             );
           })}
         </div>
+        <div className="my-6 px-2">
+        <Link to='/egorkreed'>
+            {playlists.map((p) => {
+              return (
+                <div className="flex gap-4 my-2">
+                  <div>
+                    <img
+                      src="/assets/EgorKreedHolostyak.jpg"
+                      width={50}
+                      height={50}
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-medium mb-2">EGOR KREED</h3>
+                    <p className="text-sm text-white/80">
+                      Executor
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </Link>
+          <Link to='/friendlythug'>
+            {playlists.map((p) => {
+              return (
+                <div className="flex gap-4 my-2">
+                  <div>
+                    <img
+                      src="/assets/frthug.jpg"
+                      width={50}
+                      height={50}
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-medium mb-2">FRIENDLY THUG 52 NGG</h3>
+                    <p className="text-sm text-white/80">
+                      Executor
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </Link>
+          <Link to='/bigbabytape'>
+            {playlists.map((p) => {
+              return (
+                <div className="flex gap-4 my-2">
+                  <div>
+                    <img
+                      src="/assets/bbt.jpeg"
+                      width={50}
+                      height={50}
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-medium mb-2">BIG BABY TAPE</h3>
+                    <p className="text-sm text-white/80">
+                      Executor
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </Link>
+          <Link to='/serebro'>
+            {playlists.map((p) => {
+              return (
+                <div className="flex gap-4 my-2">
+                  <div>
+                    <img
+                      src="/assets/Serebro.jpeg"
+                      width={50}
+                      height={50}
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-medium mb-2">SEREBRO</h3>
+                    <p className="text-sm text-white/80">
+                      Executor
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </Link>
+        </div>
         {/* <div className="your_library">
                     <div className="leading-8 mt-2 tertiary_bg rounded-lg py-6 px-4">
                         <p className="font-bold">Create your first playlist</p>

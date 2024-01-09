@@ -54,6 +54,13 @@ export const songs = [
     mp3: new Audio("/assets/mp3/4x4.mp3"),
     img: "/assets/4x4.jpg",
   },
+  {
+    id: Math.random() * Date.now(),
+    title: "Mama Lyba",
+    artist: "Serebro",
+    mp3: new Audio("/assets/mp3/Serebro-mama.mp3"),
+    img: "/assets/Serebro.jpeg",
+  },
 ];
 
 const Home = () => {

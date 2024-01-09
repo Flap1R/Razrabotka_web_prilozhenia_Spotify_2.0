@@ -20,37 +20,37 @@ const Search = () => {
           <div className="grid  gap-6 grid-cols-5">
             <div className="col-span-1">
               <CategoryCard
-                title={"Live Events"}
-                img={"/assets/Arijit-1.jpg"}
+                title={"Music"}
+                img={"/assets/Devil_Eyes.jpg"}
                 color={"bg-purple-500"}
               />
             </div>
             <div className="col-span-1">
               <CategoryCard
                 title={"Made For You"}
-                img={"/assets/Arijit-1.jpg"}
+                img={"/assets/Devil_Eyes.jpg"}
                 color={"bg-red-500"}
               />
             </div>
             <div className="col-span-1">
               <CategoryCard
                 title={"New Releases"}
-                img={"/assets/Arijit-1.jpg"}
+                img={"/assets/Devil_Eyes.jpg"}
                 color={"bg-orange-500"}
               />
             </div>
             <div className="col-span-1">
               <CategoryCard
-                title={"Live Events"}
-                img={"/assets/Arijit-1.jpg"}
-                color={"bg-purple-500"}
+                title={"Hip-Hop"}
+                img={"/assets/Devil_Eyes.jpg"}
+                color={"bg-green-500"}
               />
             </div>
             <div className="col-span-1">
               <CategoryCard
-                title={"Live Events"}
-                img={"/assets/Arijit-1.jpg"}
-                color={"bg-purple-500"}
+                title={"Rock"}
+                img={"/assets/Devil_Eyes.jpg"}
+                color={"bg-yellow-500"}
               />
             </div>
           </div>
