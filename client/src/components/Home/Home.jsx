@@ -88,7 +88,7 @@ const Home = () => {
         </div>
         <div className="flex justify-between my-4 items-center">
           <span className="text-xl font-bold hover:underline cursor-pointer">
-            Spotify List
+            Spotify 2.0 List
           </span>
           <span>Show All</span>
         </div>
