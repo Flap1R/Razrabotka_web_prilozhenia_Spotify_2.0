@@ -1,5 +1,5 @@
 const express = require("express");
-const Profile = require('../Models/Profile');
+const Profile = require('../models/Profile');
 const ProfileController = require("../controllers/ProfileController");
 const router = express.Router();
 

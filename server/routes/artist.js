@@ -1,5 +1,5 @@
 const express = require("express");
-const Artist = require("../Models/Artist");
+const Artist = require("../models/Artist");
 const ArtistController = require("../controllers/ArtistController"); // Импортируем контроллер
 const router = express.Router();
 

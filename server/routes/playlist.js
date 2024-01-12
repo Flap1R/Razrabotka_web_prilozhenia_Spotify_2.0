@@ -1,5 +1,5 @@
 const express = require("express");
-const Playlist = require("../Models/Playlist");
+const Playlist = require("../models/Playlist");
 const PlaylistController = require("../controllers/PlaylistController");
 const router = express.Router();
 

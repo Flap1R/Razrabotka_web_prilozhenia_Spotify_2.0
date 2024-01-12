@@ -1,4 +1,4 @@
-const Artist = require("../Models/Artist");
+const Artist = require("../models/Artist");
 
 exports.getAllArtists = async (req, res) => {
   try {

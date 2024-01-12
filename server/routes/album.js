@@ -4,7 +4,7 @@ const AlbumController = require("../controllers/AlbumController"); // Импор
 const router = express.Router();
 
 // Получить все альбомы
-router.get("/", AlbumController.getAllAlbums);
+router.get("/album", AlbumController.getAllAlbums);
 
 // Получить информацию об альбоме по ID
 router.get("/albumId", AlbumController.getAlbumById);
